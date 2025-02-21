@@ -202,7 +202,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
         Log.d(LIBRARY_NAME, String.format("FFmpegKitFlutterPlugin %s attached to activity %s.", this,
                 activityPluginBinding.getActivity()));
         init(flutterPluginBinding.getBinaryMessenger(), flutterPluginBinding.getApplicationContext(),
-                activityPluginBinding.getActivity(), null, activityPluginBinding);
+                activityPluginBinding.getActivity(), activityPluginBinding);
     }
 
     @Override
@@ -659,7 +659,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
     }
 
     @SuppressWarnings("deprecation")
-    protected void init(final BinaryMessenger messenger, final Context context, final Activity activity, final io.flutter.plugin.common.PluginRegistry.Registrar registrar, final ActivityPluginBinding activityBinding) {
+    protected void init(final BinaryMessenger messenger, final Context context, final Activity activity, final ActivityPluginBinding activityBinding) {
         registerGlobalCallbacks();
 
         if (methodChannel == null) {
